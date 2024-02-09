@@ -1,3 +1,4 @@
+import SearchForm from '@/components/Filters/filters'
 import React from 'react'
 
 const Page = () => {
@@ -7,6 +8,7 @@ const Page = () => {
         <div className='flex-center relative min-h-[274px] w-full flex-col rounded-xl bg-banner bg-cover'>
           <h1 className='sm:heading2 heading1 mb-6 text-center text-white capitalize'>Javascript Mastery resouces</h1>
         </div>
+          <SearchForm />
 
       </section>
     </main>
