@@ -1,8 +1,8 @@
-export const schema = {
+const schema = {
   name: "resource",
   title: "Resource",
   type: "document",
-  field: [
+  fields: [
     {
       name: "title",
       title: "Title",
@@ -14,7 +14,7 @@ export const schema = {
       name: "slug",
       title: "Slug",
       type: "slug",
-      option: {
+      options: {
         source: "title",
       },
     },
@@ -33,6 +33,7 @@ export const schema = {
     {
       name: "poster",
       title: "Poster",
+      type : 'image',
       validation: (Rule: any) => Rule.required(),
       options: {
         hotspot: true,
@@ -49,3 +50,6 @@ export const schema = {
     }
   ],
 };
+
+
+export default schema

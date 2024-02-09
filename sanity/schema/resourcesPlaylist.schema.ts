@@ -2,7 +2,7 @@ const schema = {
     name : "resoucePlaylist",
     title : "ResourcePlaylist",
     type : 'document',
-    field : [
+    fields : [
         {
             name : 'title',
             title : 'Title',
@@ -18,7 +18,7 @@ const schema = {
                     type : 'reference',
                     to : [
                         {
-                            type : 'resources'
+                            type : 'resource'
                         }
                     ]
                 }
