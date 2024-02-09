@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 import { Input } from "@/components/ui/input"
 
 
-const Filters = () => {
+const SearchForm = () => {
   const [search , setSearched] = useState("")
   return (
     <form className='flex-center mx-auto mt-10 w-full sm:-mt-10 sm:px-5'>
@@ -24,4 +24,4 @@ const Filters = () => {
   )
 }
 
-export default Filters
+export default SearchForm
