@@ -5,7 +5,7 @@ import SearchForm from "@/components/Search/searchForm";
 import { getResources, getResourcesPlaylist } from "@/sanity/actions";
 import React, { useState } from "react";
 
-export const revalidate = 900;
+export const revalidate = 500;
 
 interface Props {
   searchParams: {

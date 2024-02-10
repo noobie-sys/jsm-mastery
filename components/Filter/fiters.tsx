@@ -10,6 +10,7 @@ const links = [
   "Backend",
   "Fullstack",
   "Tailwind",
+  "other"
 ];
 const Fiters = () => {
   const [active, setActive] = useState<string>("");

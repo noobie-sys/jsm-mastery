@@ -16,7 +16,7 @@ interface Props {
 const ResourceCard = ({ id, title, image, downloadNumber , downloadLink }: Props) => {
   return (
     <Card
-      className="w-full max-w-fit border-0 !bg-transparent sm:max-w-[356px] text-white m-2"
+      className="w-full max-w-fit border-0 sm:max-w-[356px] text-white m-2 "
     >
       <Link href={downloadLink} target="_blank">
         <CardHeader className="flex-center flex-col gap-2.5 !p-0">
@@ -29,7 +29,7 @@ const ResourceCard = ({ id, title, image, downloadNumber , downloadLink }: Props
               height={440}
             />
           </div>
-          <CardTitle className="text-white paragraph-semibold line-clamp-1 w-full text-left">
+          <CardTitle className="text-white paragraph-semibold line-clamp-3 w-full text-left px-2">
             {title}
           </CardTitle>
         </CardHeader>
