@@ -1,17 +1,28 @@
+import ResourceCard from "@/components/Card/ResourceCard";
 import Fiters from "@/components/Filter/fiters";
+import Header from "@/components/Header/Header";
 import SearchForm from "@/components/Search/searchForm";
 import { getResources } from "@/sanity/actions";
 import React from "react";
 
-const Page = async () => {
+export const revalidate = 900;
+
+interface Props {
+  searchParams : {
+    [key : string] : string | undefined
+  }
+}
+
+const Page = async ({searchParams} : Props) => {
 
   const resources = await getResources({
     query : '',
-    category : '',
+    category : searchParams?.category || '',
     page : '1'
   })
 
-  console.log({resources , message : "Fetching data... "})
+  console.log({...resources , message : "Data fetching..."})
+
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col ">
       <section className="nav-padding w-full">
@@ -25,10 +36,16 @@ const Page = async () => {
       <Fiters />
 
       <section className="flex-center mt-6 w-full flex-col sm:mt-20">
-        <h2>Header</h2>
-        <div  className="mt-12 flex w-full flex-wrap justify-center sm:justify-start">
-          {resources?.length > 0  ? resources.map((resource : object , i : number) => (
-            <h1 key={i}>Hello There</h1>
+        <Header />
+        <div  className="mt-12 flex w-full flex-wrap justify-center sm:justify-start ">
+          {resources?.length > 0  ? resources.map((resource : any, i : number) => (
+           <ResourceCard key={i} 
+            title ={resource.title}
+            id = {resource._id}
+            image = {resource.image}
+            downloadNumber={resource.views}
+
+           />
           )) : (
             <p>no resource found</p>
           ) }

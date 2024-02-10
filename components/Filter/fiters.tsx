@@ -1,11 +1,40 @@
 "use client";
+import { formUrlQuery } from "@/sanity/utils";
+import { useSearchParams , useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-const links = ["Next 13", "Frontend", "Backend", "Fullstack"];
+
+const links = [ "All" ,"Next 13", "Frontend", "Backend", "Fullstack", "Tailwind"];
 const Fiters = () => {
     const [active , setActive] = useState("");
+    const searchParams = useSearchParams()
+    const router = useRouter()
     const handelFilters = (link:string) => {
+      let newUrl = ""
+
+      if(active === link) {
+
+        setActive('');
+
+        newUrl = formUrlQuery({
+          params : searchParams.toString() ,
+          key : 'category',
+          value : null
+  
+        })
+      }else {
         setActive(link)
+        newUrl = formUrlQuery({
+          params : searchParams.toString() ,
+          key : 'category',
+          value : link.toLowerCase()
+  
+        })
+      }
+      
+     router.push(newUrl , {scroll : false})
+
+
     }
   return (
     <ul className="text-white-800 body-text no-scrollbar flex w-full m-w-full gap-2 overflow-auto p-12 sm:max-w-2xl">

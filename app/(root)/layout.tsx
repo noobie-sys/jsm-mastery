@@ -5,7 +5,8 @@ import '../globals.css'
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div >
+    <div suppressHydrationWarning=
+    {true}>
       <Navbar />
       {children}
       <Footer />
