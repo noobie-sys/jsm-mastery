@@ -8,20 +8,18 @@ interface getResorceParams {
   page: string;
 }
 
-export const getResourcesPlaylist = async (params: getResorceParams) => {
-  const { query, category, page } = params;
+export const getResourcesPlaylist = async () => {
 
   try {
     const resources = await readClient.fetch(
-      groq`*[_type ==  "resourcePlaylist"{
+      groq`*[_type ==  "resoucePlaylist"]{
         _id,
         title ,
-        respirces[0...6]-> {
+        resources[0...6]->{
           title ,
           _id,
           downloadLink,
           "image":poster.asset->url,
-          slug,
           views,
           category
         }
