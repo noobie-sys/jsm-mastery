@@ -13,7 +13,6 @@ interface Props {
 }
 
 const ResourceCard = ({ id, title, image, downloadNumber }: Props) => {
-  console.log(image, "Images");
   return (
     <Card
       className="w-full max-w-fit border-0 !bg-transparent sm:max-w-[356px] text-white m-2"
