@@ -1,8 +1,17 @@
 import Fiters from "@/components/Filter/fiters";
 import SearchForm from "@/components/Search/searchForm";
+import { getResources } from "@/sanity/actions";
 import React from "react";
 
-const Page = () => {
+const Page = async () => {
+
+  const resources = await getResources({
+    query : '',
+    category : '',
+    page : '1'
+  })
+
+  console.log({resources , message : "Fetching data... "})
   return (
     <main className="flex-center paddings mx-auto w-full max-w-screen-2xl flex-col ">
       <section className="nav-padding w-full">
@@ -14,6 +23,18 @@ const Page = () => {
         <SearchForm />
       </section>
       <Fiters />
+
+      <section className="flex-center mt-6 w-full flex-col sm:mt-20">
+        <h2>Header</h2>
+        <div  className="mt-12 flex w-full flex-wrap justify-center sm:justify-start">
+          {resources?.length > 0  ? resources.map((resource : object , i : number) => (
+            <h1 key={i}>Hello There</h1>
+          )) : (
+            <p>no resource found</p>
+          ) }
+        </div>
+
+      </section>
     </main>
   );
 };
